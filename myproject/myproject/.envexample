@@ -1,0 +1,6 @@
+DB_ENGINE='django.db.backends.postgresql_psycopg2'
+DB_NAME=quenty-app
+DB_USER=
+DB_PASS=
+DB_HOST=127.0.0.1
+DB_PORT=5432
