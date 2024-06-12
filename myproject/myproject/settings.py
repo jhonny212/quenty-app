@@ -47,7 +47,11 @@ CUSTOM_APPS = [
     'apps.myapp'
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
+THIRD_PARTY_APPS = [
+    'rest_framework'
+]
+
+INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
