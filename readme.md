@@ -10,3 +10,10 @@
 ## Start
 - Run the migrations using the `python manage.py migrate`
 - Start the project using the `python manage.py runserver`
+
+# Custom commands
+- `python .\manage.py command`
+    - This command will execute 3 queries:
+        - Retrieve all authors who have written a book with a rating greater than 4.5.
+        - Retrieve all books published in the last year.
+        - Calculate the average rating of books for each author and order the authors by their average rating in descending order.
