@@ -1,6 +1,7 @@
 # Set Up Project
-## Note
-For Django REST Framework use the prefix "/api/" for example "api/books" or "api/authors" 
+## Notes
+- For Django REST Framework use the prefix "/api/" for example "api/books" or "api/authors"
+- Put your .env file at the same location of the settings.py file if this doesn't work send me a message
 
 ## Installation
 
