@@ -4,8 +4,8 @@ from apps.myapp.views import AuthorViewSet, BookViewSet
 
 # Definir un router
 router = DefaultRouter()
-router.register(r'author', AuthorViewSet)
-router.register(r'book', BookViewSet)
+router.register(r'authors', AuthorViewSet)
+router.register(r'books', BookViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

@@ -10,29 +10,29 @@ class AuthorViewSetTestCase(TestCase):
         self.author = Author.objects.create(name='Test Author', birth_date='2000-01-01')
 
     def test_author_list(self):
-        response = self.client.get('/api/author/')
+        response = self.client.get('/api/authors/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 1)
 
     def test_create_author(self):
-        response = self.client.post('/api/author/', self.author_data, format='json')
+        response = self.client.post('/api/authors/', self.author_data, format='json')
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Author.objects.count(), 2)
 
     def test_retrieve_author(self):
-        response = self.client.get(f'/api/author/{self.author.id}/')
+        response = self.client.get(f'/api/authors/{self.author.id}/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['name'], 'Test Author')
 
     def test_update_author(self):
         updated_data = {'name': 'Updated Author', 'birth_date': '2001-01-01'}
-        response = self.client.put(f'/api/author/{self.author.id}/', updated_data, format='json')
+        response = self.client.put(f'/api/authors/{self.author.id}/', updated_data, format='json')
         self.assertEqual(response.status_code, 200)
         self.author.refresh_from_db()
         self.assertEqual(self.author.name, 'Updated Author')
 
     def test_delete_author(self):
-        response = self.client.delete(f'/api/author/{self.author.id}/')
+        response = self.client.delete(f'/api/authors/{self.author.id}/')
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Author.objects.count(), 0)
 
@@ -54,17 +54,17 @@ class BookViewSetTestCase(TestCase):
         )
 
     def test_book_list(self):
-        response = self.client.get('/api/book/')
+        response = self.client.get('/api/books/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 1)
 
     def test_create_book(self):
-        response = self.client.post('/api/book/', self.book_data, format='json')
+        response = self.client.post('/api/books/', self.book_data, format='json')
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Book.objects.count(), 2)
 
     def test_retrieve_book(self):
-        response = self.client.get(f'/api/book/{self.book.id}/')
+        response = self.client.get(f'/api/books/{self.book.id}/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['title'], 'Test Book')
 
@@ -75,12 +75,12 @@ class BookViewSetTestCase(TestCase):
             'author': self.author.id,
             'rating': 4.0
         }
-        response = self.client.put(f'/api/book/{self.book.id}/', updated_data, format='json')
+        response = self.client.put(f'/api/books/{self.book.id}/', updated_data, format='json')
         self.assertEqual(response.status_code, 200)
         self.book.refresh_from_db()
         self.assertEqual(self.book.title, 'Updated Book')
 
     def test_delete_book(self):
-        response = self.client.delete(f'/api/book/{self.book.id}/')
+        response = self.client.delete(f'/api/books/{self.book.id}/')
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Book.objects.count(), 0)
