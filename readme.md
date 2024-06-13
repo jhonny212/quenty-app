@@ -1,4 +1,6 @@
 # Set Up Project
+## Note
+For Django REST Framework use the prefix "/api/" for example "api/books" or "api/authors" 
 
 ## Installation
 
