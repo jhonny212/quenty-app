@@ -17,3 +17,7 @@
         - Retrieve all authors who have written a book with a rating greater than 4.5.
         - Retrieve all books published in the last year.
         - Calculate the average rating of books for each author and order the authors by their average rating in descending order.
+
+# Run Tests
+- In this case for the structure of my project you must run the following command: coverage run manage.py test apps --pattern="test*.py"
+- Check coverage: coverage report or coverage html
